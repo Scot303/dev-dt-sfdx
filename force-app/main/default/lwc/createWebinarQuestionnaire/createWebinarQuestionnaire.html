@@ -1,0 +1,36 @@
+<!--
+ - Created by dtoczko on 12.07.2022.
+ -->
+
+<template>
+    <lightning-card title={title} if:true={isCompleted}>
+        <lightning-record-edit-form
+                object-api-name='Webinar_Question__c'
+                onsubmit={handleSubmit}
+        >
+            <lightning-input-field field-name="Attended__c" onchange={hideShowForm}></lightning-input-field>
+            <template if:true= {hideForm}>
+                <lightning-input-field field-name="Name"></lightning-input-field>
+                <lightning-input-field field-name="Age__c"></lightning-input-field>
+                <lightning-input-field field-name="Score__c"></lightning-input-field>
+                <lightning-input-field field-name="Feedback_Comments__c"></lightning-input-field>
+                <lightning-input-field field-name="Recommends__c" onchange={hideShowReason}></lightning-input-field>
+                <template if:false={hideReason}>
+                    <lightning-input-field field-name="Why_Not_Recommended__c"></lightning-input-field>
+                </template>
+                <div class="slds-var-m-top_medium">
+                    <lightning-button variant="brand" type="submit" label="Save">
+                    </lightning-button>
+                </div>
+
+            </template>
+        </lightning-record-edit-form>
+        <div class="slds-var-m-top_medium">
+            <template if:false={hideTable}>
+                <c-questionnaires-table user-id={userId}></c-questionnaires-table>
+            </template>
+            <lightning-button variant="brand" label={buttonLabel} onclick={hideTableEvent}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>
