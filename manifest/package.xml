@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>AccountTriggerHandler</members>
+        <members>TEST_AccountTrigger</members>
+        <members>TEST_DataFactory</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>AccountTrigger</members>
+        <members>AccountDeletion</members>
+        <name>ApexTrigger</name>
+    </types>
     <version>55.0</version>
 </Package>
